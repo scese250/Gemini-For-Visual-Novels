@@ -1,3 +1,5 @@
+## [SI ERES LATINO CLICK ACÁ](https://github.com/scese250/Gemini-For-Visual-Novels/blob/main/README_ES.md)
+
 This script launches a local server compatible with LunaTranslator (chat/completions) that uses EXCLUSIVELY your browser sessions (Cookies) to interact with Google Gemini.
 
 **Why only Cookies?**
@@ -58,5 +60,6 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 ## Luna Translator config example
 
 <img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/7d605c9d-8e6d-403f-9e5f-f76bf0297d86" />
+
 
 
