@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pydantic
+browser-cookie3
+gemini-webapi
