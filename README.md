@@ -7,7 +7,7 @@ Free API keys have very low requests per minute (RPM) limits. By using browser s
 
 ## Important Recommendation: Avoid Soft Bans
 The system automatically rotates accounts every **10 requests**.
-**IT IS HIGHLY RECOMMENDED to have at least 2 Google accounts logged in on your browser (or different browsers)** so the script can switch between them. This distributes the load and prevents temporary blocks (soft bans) due to excessive usage on a single account.
+**IT IS HIGHLY RECOMMENDED to have at least 2 Google accounts setup in the Cookies.txt so the script can switch between them. This distributes the load and prevents temporary blocks (soft bans) due to excessive usage on a single account.
 
 ## Requirements
 
@@ -29,10 +29,9 @@ Once installed, simply run `run.bat` to start the server.
 ## Cookie Configuration
 ### Option A: Automatic (Firefox Only)
 If you use **Firefox**, the script will attempt to read cookies automatically. You don't need to do anything else.
-*Note: Automatic reading DOES NOT work with Chrome/Edge due to security restrictions.*
+*Note: Automatic reading DOES NOT work with Chrome/Edge/Any Chromium browser based due to security restrictions.*
 
 ### Option B: Manual (Chrome, Edge, Brave, etc.) - RECOMMENDED
-For Chrome users or if the automatic option fails, follow these steps:
 
 1.  Install the **Cookie-Editor** extension in your browser.
     *   [Chrome Web Store](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
@@ -60,6 +59,7 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 ## Luna Translator config example
 
 <img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/7d605c9d-8e6d-403f-9e5f-f76bf0297d86" />
+
 
 
 
