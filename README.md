@@ -18,7 +18,7 @@ The system automatically rotates accounts every **10 requests**.
 
 You must follow this order:
 
-### 1. Installation (First Time Only)
+### 1. Installation
 Run the `install.bat` file. This script will handle:
 *   Creating a Python virtual environment.
 *   Installing all necessary dependencies.
@@ -40,7 +40,7 @@ For Chrome users or if the automatic option fails, follow these steps:
 2.  Go to `google.com` (or `gemini.google.com`) and make sure you are logged in.
 3.  Open the **Cookie-Editor** extension.
 4.  Click the **Export** button (bottom right) and select **Export as JSON**.
-5.  Create a new file named `Cookies.txt` inside the `Gemini_Server_Release` folder.
+5.  Create a new file named `Cookies.txt` in the root folder.
 6.  Paste the copied JSON content into `Cookies.txt` and save.
 
 **Multi-Account Tip:**
@@ -60,6 +60,7 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 ## Luna Translator config example
 
 <img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/7d605c9d-8e6d-403f-9e5f-f76bf0297d86" />
+
 
 
 
