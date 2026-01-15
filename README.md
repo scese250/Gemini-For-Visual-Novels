@@ -16,8 +16,6 @@ The system automatically rotates accounts every **10 requests**.
 
 ## Installation and Usage
 
-You must follow this order:
-
 ### 1. Installation
 Run the `install.bat` file. This script will handle:
 *   Creating a Python virtual environment.
@@ -59,6 +57,7 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 ## Luna Translator config example
 
 <img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/7d605c9d-8e6d-403f-9e5f-f76bf0297d86" />
+
 
 
 
