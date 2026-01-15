@@ -1,13 +1,8 @@
-# Servidor Gemini Cookie (Browser Sessions)
 
-Este script levanta un servidor local compatible con la API de OpenAI (chat/completions) que utiliza EXCLUSIVAMENTE tus sesiones de navegador (Cookies) para interactuar con Google Gemini.
+Programita para leer novelas visuales con IA en Luna Translator.
 
-**¿Por qué solo Cookies?**
-Las API keys gratuitas tienen límites de peticiones por minuto (RPM) muy bajos. Usando las sesiones de navegador (Firefox/Chrome), podemos acceder a modelos como Gemini 3.0 Pro/Flash con límites mucho más relajados.
-
-## Recomendación Importante: Evita Soft Bans
-El sistema rota automáticamente de cuenta cada **10 peticiones**.
-**SE RECOMIENDA encarecidamente tener al menos 2 cuentas de Google iniciadas en tu navegador (o en diferentes navegadores)** para que el script pueda alternar entre ellas. Esto distribuye la carga y evita bloqueos temporales (soft bans) por exceso de uso en una sola cuenta.
+## Consejo a tener en cuenta
+Recomiendo encarecidamente que usen dos cuentas de Google para evitar que les bloqueen (temporalmente) el uso de Gemini. Si les llegan a bloquear, pueden usar VPN. NO les van a banear la cuenta de Google, solo el uso de Gemini. 
 
 ## Requisitos
 
@@ -28,8 +23,8 @@ Una vez instalado, simplemente ejecuta `run.bat` para iniciar el servidor.
 
 ## Configuración de Cookies
 ### Opción A: Automática (Solo Firefox)
-Si usas **Firefox**, el script intentará leer las cookies automáticamente. No necesitas hacer nada más.
-*Nota: La lectura automática NO funciona con Chrome/Edge debido a restricciones de seguridad.*
+Si usas **Firefox**, el script intentará leer las sesión automáticamente. No necesitas hacer nada más.
+*Nota: NO funciona con Chrome/Edge debido a restricciones de seguridad.*
 
 ### Opción B: Manual (Chrome, Edge, Brave, etc.) - RECOMENDADO
 Para usuarios de Chrome o si la opción automática falla, sigue estos pasos:
@@ -53,9 +48,13 @@ Puedes pegar el JSON de varias cuentas diferentes en el mismo archivo `Cookies.t
 
 ## Endpoints
 
-*   **POST** `http://127.0.0.1:8000/v1/chat/completions`: Endpoint compatible con OpenAI.
+*   **POST** `http://127.0.0.1:8000/v1/chat/completions`: Endpoint compatible con Luna Translator.
 *   **GET** `http://127.0.0.1:8000/v1/models`: Lista de modelos disponibles.
     *   *Nota: Aunque en la lista aparezca `gemini-2.5-flash` (por compatibilidad), el sistema utiliza internamente el modelo **Gemini 3.0 Flash** de la web.*
+    
+## Cómo debes configurar Luna Trasnlator
 
-## Créditos
-Herramienta de puente para uso personal.
+<img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/97f936ff-2fcc-4f84-a1a6-630e67a9a761" />
+
+
+
