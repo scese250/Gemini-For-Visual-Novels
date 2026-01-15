@@ -1,6 +1,4 @@
-# Gemini Cookie Server (Browser Sessions)
-
-This script launches a local server compatible with the OpenAI API (chat/completions) that uses EXCLUSIVELY your browser sessions (Cookies) to interact with Google Gemini.
+This script launches a local server compatible with LunaTranslator (chat/completions) that uses EXCLUSIVELY your browser sessions (Cookies) to interact with Google Gemini.
 
 **Why only Cookies?**
 Free API keys have very low requests per minute (RPM) limits. By using browser sessions (Firefox/Chrome), we can access models like Gemini 3.0 Pro/Flash with much more relaxed limits.
@@ -53,9 +51,12 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 
 ## Endpoints
 
-*   **POST** `http://127.0.0.1:8000/v1/chat/completions`: OpenAI compatible endpoint.
+*   **POST** `http://127.0.0.1:8000/v1/chat/completions`: LunaTranslator compatible endpoint.
 *   **GET** `http://127.0.0.1:8000/v1/models`: List of available models.
     *   *Note: Although `gemini-2.5-flash` appears in the list (for compatibility), the system internally uses the **Gemini 3.0 Flash** web model.*
 
-## Credits
-Bridge tool for personal use.
+## Luna Translator config example
+
+<img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/7d605c9d-8e6d-403f-9e5f-f76bf0297d86" />
+
+
