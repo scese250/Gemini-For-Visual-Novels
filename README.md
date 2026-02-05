@@ -52,7 +52,7 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 
 *   **POST** `http://127.0.0.1:8000/v1/chat/completions`: LunaTranslator compatible endpoint.
 *   **GET** `http://127.0.0.1:8000/v1/models`: List of available models.
-    *   *Note: Although `gemini-2.5-flash` appears in the list (for compatibility), the system internally uses the **Gemini 3.0 Flash** web model.*
+    *   *Note: Support for Gemini 3.0 Flash, 3.0 Flash Thinking, and 3.0 Pro.*
 
 ## Luna Translator config example
 

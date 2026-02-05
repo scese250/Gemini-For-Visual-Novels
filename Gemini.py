@@ -163,7 +163,7 @@ class Message(BaseModel):
     content: str
 
 class ChatCompletionRequest(BaseModel):
-    model: str = "gemini-3.0-pro"
+    model: str = "gemini-3.0-flash"
     messages: List[Message]
     stream: Optional[bool] = False
 
@@ -211,7 +211,14 @@ async def execute_query(full_prompt: str, model_id_request: str):
             
             # Setup Chat
             acc_idx = cm.current_index
-            target_model = "gemini-2.5-flash" if "flash" in model_id_request.lower() else "gemini-3.0-pro"
+            
+            model_id_lower = model_id_request.lower()
+            if "thinking" in model_id_lower:
+                target_model = "gemini-3.0-flash-thinking"
+            elif "flash" in model_id_lower:
+                target_model = "gemini-3.0-flash"
+            else:
+                target_model = "gemini-3.0-pro"
             
             if acc_idx not in THREAD_STATE: THREAD_STATE[acc_idx] = {}
             chat = THREAD_STATE[acc_idx].get(target_model)
@@ -311,8 +318,9 @@ async def list_models():
     return {
         "object": "list",
         "data": [
-            {"id": "gemini-3.0-pro", "object": "model", "owned_by": "google"},
-            {"id": "gemini-2.5-flash", "object": "model", "owned_by": "google"}
+            {"id": "gemini-3.0-flash", "object": "model", "owned_by": "google"},
+            {"id": "gemini-3.0-flash-thinking", "object": "model", "owned_by": "google"},
+            {"id": "gemini-3.0-pro", "object": "model", "owned_by": "google"}
         ]
     }
 

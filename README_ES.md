@@ -50,7 +50,7 @@ Puedes pegar el JSON de varias cuentas diferentes en el mismo archivo `Cookies.t
 
 *   **POST** `http://127.0.0.1:8000/v1/chat/completions`: Endpoint compatible con Luna Translator.
 *   **GET** `http://127.0.0.1:8000/v1/models`: Lista de modelos disponibles.
-    *   *Nota: Aunque en la lista aparezca `gemini-2.5-flash` (por compatibilidad), el sistema utiliza internamente el modelo **Gemini 3.0 Flash** de la web.*
+    *   *Nota: Soporte para Gemini 3.0 Flash, 3.0 Flash Thinking y 3.0 Pro.*
     
 ## Cómo debes configurar Luna Trasnlator
 
