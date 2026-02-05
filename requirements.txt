@@ -1,5 +1,4 @@
 fastapi
 uvicorn
-pydantic
-browser-cookie3
-gemini-webapi
+gemini_webapi
+regex

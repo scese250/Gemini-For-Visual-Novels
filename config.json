@@ -1,0 +1,7 @@
+{
+    "rotation_batch_size": 30, // Number of requests per account before switching to the next one to avoid soft-bans.
+    "context_enabled": true, // Enables the AI memory system to remember scene details (true/false).
+    "context_model": "flash", // Model for context memory: "flash" (fast/free tier friendly) or "pro" (needs subscription to avoid limits).
+    "context_update_interval": 20, // How many translated lines to wait before updating the memory summary.
+    "context_dedicated_account": false // If true, uses a separate account (from Context.txt) just for memory analysis.
+}

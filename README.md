@@ -6,7 +6,7 @@ This script launches a local server compatible with LunaTranslator (chat/complet
 Free API keys have very low requests per minute (RPM) limits. By using browser sessions (Firefox/Chrome), we can access models like Gemini 3.0 Pro/Flash with much more relaxed limits.
 
 ## Important Recommendation: Avoid Soft Bans
-The system automatically rotates accounts every **10 requests**.
+The system rotates accounts according to the `rotation_batch_size` defined in `config.json` (default: 30 requests).
 **IT IS HIGHLY RECOMMENDED to have at least 2 Google accounts setup in the Cookies.txt so the script can switch between them. This distributes the load and prevents temporary blocks (soft bans) due to excessive usage on a single account.
 
 ## Requirements
@@ -25,11 +25,7 @@ Run the `install.bat` file. This script will handle:
 Once installed, simply run `run.bat` to start the server.
 
 ## Cookie Configuration
-### Option A: Automatic (Firefox Only)
-If you use **Firefox**, the script will attempt to read cookies automatically. You don't need to do anything else.
-*Note: Automatic reading DOES NOT work with Chrome/Edge/Any Chromium browser based due to security restrictions.*
-
-### Option B: Manual (Chrome, Edge, Brave, etc.) - RECOMMENDED
+The script uses `Cookies.txt` exclusively for authentication. Automatic browser reading has been disabled for stability.
 
 1.  Install the **Cookie-Editor** extension in your browser.
     *   [Chrome Web Store](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
@@ -53,6 +49,28 @@ You can paste the JSON from multiple different accounts into the same `Cookies.t
 *   **POST** `http://127.0.0.1:8000/v1/chat/completions`: LunaTranslator compatible endpoint.
 *   **GET** `http://127.0.0.1:8000/v1/models`: List of available models.
     *   *Note: Support for Gemini 3.0 Flash, 3.0 Flash Thinking, and 3.0 Pro.*
+
+## Advanced Features: Context Awareness
+
+This version includes an **Advanced Context System** that remembers scene details to improve translation accuracy.
+
+### Configuration (`config.json`)
+*   `context_enabled`: (true/false) Turn the context system on or off.
+*   `context_model`: "flash" (faster) or "pro" (better quality) for the background context analysis.
+*   `context_dedicated_account`: (true/false) If `true`, the system will use a **DEDICATED** account purely for "thinking" about the context, separate from the translation rotation.
+
+### How to use a Dedicated Context Account
+1.  Set `"context_dedicated_account": true` in `config.json`.
+2.  Create a file named `Context.txt` in the root folder.
+3.  Export cookies from your "Smart" account (e.g., one with Gemini Advanced/Pro) and paste them into `Context.txt`.
+4.  Restart the server.
+*If `Context.txt` is missing, the script will create a template for you.*
+
+## Endpoints for Management
+*   **GET** `/context/status`: See what the AI currently "removes" about the scene.
+*   **POST** `/context/reset`: Clear the context memory (useful when starting a new game/route).
+*   **GET** `/cookies/status`: Check loaded accounts and rotation status.
+*   **POST** `/cookies/reload`: Reload `Cookies.txt` without restarting.
 
 ## Luna Translator config example
 

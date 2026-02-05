@@ -2,7 +2,7 @@
 Programita para leer novelas visuales con IA en Luna Translator.
 
 ## Consejo a tener en cuenta
-Recomiendo encarecidamente que usen dos cuentas de Google para evitar que les bloqueen (temporalmente) el uso de Gemini. Si les llegan a bloquear, pueden usar VPN. NO les van a banear la cuenta de Google, solo el uso de Gemini. 
+Recomiendo encarecidamente que usen al menos dos cuentas de Google para evitar bloqueos temporales. El sistema rota las cuentas según el valor `rotation_batch_size` en `config.json` (por defecto cada 30 peticiones). Si les llegan a bloquear, pueden usar VPN. NO les van a banear la cuenta de Google, solo el uso de Gemini. 
 
 ## Requisitos
 
@@ -22,12 +22,9 @@ Ejecuta el archivo `install.bat`. Este script se encargará de:
 Una vez instalado, simplemente ejecuta `run.bat` para iniciar el servidor.
 
 ## Configuración de Cookies
-### Opción A: Automática (Solo Firefox)
-Si usas **Firefox**, el script intentará leer las sesión automáticamente. No necesitas hacer nada más.
-*Nota: NO funciona con Chrome/Edge debido a restricciones de seguridad.*
+El script utiliza exclusivamente `Cookies.txt` para la autenticación. La lectura automática del navegador se ha desactivado por estabilidad.
 
-### Opción B: Manual (Chrome, Edge, Brave, etc.) - RECOMENDADO
-Para usuarios de Chrome o si la opción automática falla, sigue estos pasos:
+Para usuarios de Chrome, Firefox o cualquier navegador basado en Chromium, sigue estos pasos:
 
 1.  Instala la extensión **Cookie-Editor** en tu navegador.
     *   [Chrome Web Store](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
@@ -51,6 +48,28 @@ Puedes pegar el JSON de varias cuentas diferentes en el mismo archivo `Cookies.t
 *   **POST** `http://127.0.0.1:8000/v1/chat/completions`: Endpoint compatible con Luna Translator.
 *   **GET** `http://127.0.0.1:8000/v1/models`: Lista de modelos disponibles.
     *   *Nota: Soporte para Gemini 3.0 Flash, 3.0 Flash Thinking y 3.0 Pro.*
+
+## Funciones Avanzadas: Context Awareness (Memoria de Escena)
+
+Esta versión incluye un **Sistema de Contexto Avanzado** que recuerda los detalles de la escena para mejorar la precisión de la traducción (evita confundir géneros o sujetos).
+
+### Configuración (`config.json`)
+*   `context_enabled`: (true/false) Activa o desactiva el sistema.
+*   `context_model`: "flash" (rápido) o "pro" (mejor calidad) para el análisis de fondo.
+*   `context_dedicated_account`: (true/false) Si es `true`, el sistema usará una **CUENTA DEDICADA** exclusivamente para "pensar" el contexto, separada de las que traducen.
+
+### Cómo usar una Cuenta Dedicada para Contexto
+1.  Pon `"context_dedicated_account": true` en `config.json`.
+2.  Crea un archivo llamado `Context.txt` en la carpeta raíz.
+3.  Exporta las cookies de tu cuenta "Inteligente" (ej. una con suscripción Gemini Advanced/Pro) y pégalas en `Context.txt`.
+4.  Reinicia el servidor.
+*Si no existe `Context.txt`, el script creará una plantilla automáticamente.*
+
+## Endpoints de Gestión
+*   **GET** `/context/status`: Mira qué es lo que la IA "recuerda" de la escena actual.
+*   **POST** `/context/reset`: Borra la memoria del contexto (útil al iniciar una nueva ruta o juego).
+*   **GET** `/cookies/status`: Verifica el estado de las cuentas cargadas.
+*   **POST** `/cookies/reload`: Recarga `Cookies.txt` sin cerrar el servidor.
     
 ## Cómo debes configurar Luna Trasnlator
 
