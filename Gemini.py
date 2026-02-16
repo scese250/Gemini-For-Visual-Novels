@@ -24,9 +24,8 @@ except ImportError:
 def load_config():
     """Load configuration from config.json"""
     default_config = {
-        "context_enabled": True,
+        "context_enabled": False,
         "context_model": "flash",
-        "rotation_batch_size": 30,
         "rotation_batch_size": 30,
         "context_update_interval": 20,
         "context_dedicated_account": False
@@ -49,7 +48,12 @@ def load_config():
         except Exception as e:
             print(f"⚠️ [CONFIG] Error loading config.json: {e}. Using defaults.")
     else:
-        print(f"⚠️ [CONFIG] config.json not found. Using defaults.")
+        try:
+            with open("config.json", 'w', encoding='utf-8') as f:
+                json.dump(default_config, f, indent=4)
+            print(f"✅ [CONFIG] Created config.json with default values (context_enabled=False).")
+        except Exception as e:
+            print(f"❌ [CONFIG] Failed to create config.json: {e}")
     
     return default_config
 
